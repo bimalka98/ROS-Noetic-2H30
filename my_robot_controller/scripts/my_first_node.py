@@ -3,10 +3,11 @@ import rospy
 
 if __name__ == '__main__':
     rospy.init_node("test_node")
-    rospy.loginfo("Hello from test node")
-    rospy.logwarn("This is a warning")
-    rospy.logerr("This is an error")
+    rospy.loginfo("Test node started")
+    
 
-    rospy.sleep(1)
+    rate = rospy.Rate(10) # 10 Hz
 
-    rospy.loginfo("End of program")
+    while not rospy.is_shutdown():
+        rospy.loginfo("Hello")
+        rate.sleep() # running the node in the given frequency
